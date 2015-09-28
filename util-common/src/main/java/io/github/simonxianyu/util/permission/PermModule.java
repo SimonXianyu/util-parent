@@ -13,6 +13,16 @@ public class PermModule {
     private PermDomain domain;
     private List<PermissionDef> perms;
 
+    @Override
+    public String toString() {
+        return "module{" +
+                "name='" + name + '\'' +
+                ", text='" + text + '\'' +
+                ", domain=" + domain.getName() +
+                ", perms=" + perms +
+                '}';
+    }
+
     public void addPermission(PermissionDef def ) {
         if (null == perms) {
             perms = new ArrayList<PermissionDef>();

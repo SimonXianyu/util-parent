@@ -13,6 +13,14 @@ public class PermDomain {
     private String text;
     private List<PermModule> modules = new ArrayList<PermModule>();
 
+    @Override
+    public String toString() {
+        return "domain{" +
+                 name +  '[' + text + ']' +
+                ", modules=" + modules +
+                '}';
+    }
+
     public void addModule(PermModule m) {
         m.setDomain(this);
         this.modules.add(m);

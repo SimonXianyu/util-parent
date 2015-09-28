@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+  <domain name="sys">
+    <module name="SysUser.basic" text="系统用户">
+      <perm name="list" text="列表" />
+      <perm name="edit" text="编辑" />
+      <perm name="delete" text="删除" />
+      <perm name="setRoles" text="设置权限" />
+    </module>
+
+    <module name="SysRole.basic" text="系统角色">
+      <perm name="list" text="列表" />
+      <perm name="edit" text="编辑" />
+      <perm name="delete" text="删除" />
+      <perm name="setPerms" text="设置权限" />
+    </module>
+  </domain>
+</permissions>
