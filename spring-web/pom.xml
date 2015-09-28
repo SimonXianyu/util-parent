@@ -21,6 +21,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-digester3</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
     </dependency>
@@ -45,6 +51,7 @@
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
     </dependency>
+
   </dependencies>
 
 </project>
