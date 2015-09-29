@@ -10,6 +10,7 @@ public class PermissionDef {
     private String text;
     private String intro;
     private PermDomain domain;
+    private PermModule module;
 
     @Override
     public String toString() {
@@ -50,5 +51,13 @@ public class PermissionDef {
 
     public void setIntro(String intro) {
         this.intro = intro;
+    }
+
+    public PermModule getModule() {
+        return module;
+    }
+
+    public void setModule(PermModule module) {
+        this.module = module;
     }
 }

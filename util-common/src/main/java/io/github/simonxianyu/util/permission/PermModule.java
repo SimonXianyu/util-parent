@@ -28,6 +28,7 @@ public class PermModule {
             perms = new ArrayList<PermissionDef>();
         }
         perms.add(def);
+        def.setModule(this);
     }
 
     public PermDomain getDomain() {
@@ -60,5 +61,11 @@ public class PermModule {
 
     public void setPerms(List<PermissionDef> perms) {
         this.perms = perms;
+    }
+
+    public void fillFuncWithDomain() {
+        for(PermissionDef def : perms) {
+            def.setDomain(domain);
+        }
     }
 }

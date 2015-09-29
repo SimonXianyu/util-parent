@@ -23,6 +23,7 @@ public class PermDomain {
 
     public void addModule(PermModule m) {
         m.setDomain(this);
+        m.fillFuncWithDomain();
         this.modules.add(m);
     }
 
