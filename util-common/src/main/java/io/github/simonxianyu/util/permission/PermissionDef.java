@@ -26,7 +26,7 @@ public class PermissionDef {
     }
 
     public String getFullName() {
-        return domain.getName()+":"+name;
+        return domain.getName()+":"+module.getName()+"."+name;
     }
 
     public PermDomain getDomain() {
