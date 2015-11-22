@@ -23,7 +23,6 @@ public class MessageDirective implements TemplateDirectiveModel {
     String var=null;
     String code=null;
     String text=null;
-    params.entrySet();
     for (Object o : params.entrySet()) {
       Map.Entry e = (Map.Entry) o;
 
