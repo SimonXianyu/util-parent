@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Properties>
+    <Property name="filename">test.log</Property>
+  </Properties>
+  <Appenders>
+    <!--<File name="File" fileName="${filename}">-->
+      <!--<PatternLayout>-->
+        <!--<pattern>%d %p %C{1.} [%t] %m%n</pattern>-->
+      <!--</PatternLayout>-->
+    <!--</File>-->
+    <!--<RollingFile name="RollingFile" fileName="${filename}"-->
+                 <!--filePattern="logs/$${date:yyyy-MM}/iam-admin-%d{MM-dd-yyyy}-%i.log.gz"-->
+            <!--&gt;-->
+      <!--<PatternLayout>-->
+        <!--<Pattern>%d %p %C{1.} [%t] %-5level %logger{36} - %m%n</Pattern>-->
+      <!--</PatternLayout>-->
+      <!--<Policies>-->
+        <!--<TimeBasedTriggeringPolicy />-->
+        <!--<SizeBasedTriggeringPolicy size="250 MB"/>-->
+      <!--</Policies>-->
+    <!--</RollingFile>-->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="ERROR" />
+    <Logger name="org.springframework" level="WARN">
+    </Logger>
+    <Logger name="org.apache.shiro" level="ERROR" additivity="false" />
+    <Logger name="io.github.simonxianyu" level="DEBUG" additivity="true" />
+    <Root level="INFO">
+      <!--<AppenderRef ref="RollingFile"/>-->
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

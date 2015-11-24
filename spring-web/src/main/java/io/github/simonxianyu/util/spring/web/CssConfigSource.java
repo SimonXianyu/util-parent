@@ -40,15 +40,20 @@ public class CssConfigSource implements InitializingBean {
       InputStream in = null;
       try {
         in = e.getValue().getInputStream();
-        prop.load( in );
-        if (prop.size()>0) {
-          Map<String, String> m = new HashMap<>();
-          for(Map.Entry<Object, Object> e1 : prop.entrySet()) {
-            m.put(e1.getKey().toString(), e1.getValue().toString());
+        if (null != in) {
+          prop.load(in);
+          log.debug("scope {} load resource {} ",e.getKey(), e.getValue());
+          if (prop.size() > 0) {
+            Map<String, String> m = new HashMap<>();
+            for (Map.Entry<Object, Object> e1 : prop.entrySet()) {
+              m.put(e1.getKey().toString(), e1.getValue().toString());
+            }
+            cssMap.put(e.getKey(), m);
+          } else {
+            log.warn("scope " + e.getKey() + " has no values");
           }
-          cssMap.put(e.getKey(), m);
         } else {
-          log.warn("scope "+e.getKey() +" has no values");
+          log.warn("no resource found in {} with {}", e.getKey(), e.getValue());
         }
       } catch (IOException e1) {
 //        e1.printStackTrace();
@@ -57,6 +62,14 @@ public class CssConfigSource implements InitializingBean {
         DwUtil.closeQuietly(in);
       }
     }
+  }
+
+  public Map<String, String> getScope(String scope) {
+    return cssMap.get(scope);
+  }
+  public String getCss(String scope, String key) {
+    Map<String,String> scopeCss = cssMap.get(scope);
+    return scopeCss == null ? null : scopeCss.get(key);
   }
 
   public Map<String, Resource> getCssResources() {
