@@ -23,6 +23,7 @@
     <log4j2.version>2.3</log4j2.version>
 
     <spring.version>4.1.6.RELEASE</spring.version>
+    <shiro.version>1.2.4</shiro.version>
   </properties>
 
   <build>
@@ -107,6 +108,12 @@
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.shiro</groupId>
+        <artifactId>shiro-core</artifactId>
+        <version>${shiro.version}</version>
       </dependency>
 
       <dependency>

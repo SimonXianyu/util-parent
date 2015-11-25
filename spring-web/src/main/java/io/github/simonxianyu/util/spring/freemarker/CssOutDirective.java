@@ -6,6 +6,8 @@ import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 import io.github.simonxianyu.util.spring.web.AbstractWebConfig;
+import io.github.simonxianyu.util.spring.web.CssConfigSource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.Map;
@@ -16,6 +18,8 @@ import java.util.Map;
  */
 public class CssOutDirective implements TemplateDirectiveModel {
   private AbstractWebConfig webConfig;
+  @Autowired
+  private CssConfigSource cssConfigSource;
 
   @Override
   public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body) throws TemplateException, IOException {
