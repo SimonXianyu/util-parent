@@ -11,7 +11,7 @@
 
   <modules>
     <module>util-common</module>
-    <module>spring-web</module>
+    <module>util-spring-web</module>
   </modules>
 
   <properties>
