@@ -5,13 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.simonxianyu</groupId>
-  <artifactId>commons-parent</artifactId>
+  <artifactId>util-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
     <module>util-common</module>
     <module>util-spring-web</module>
+    <module>util-spring</module>
   </modules>
 
   <properties>
@@ -94,6 +95,11 @@
         <version>${log4j2.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context-support</artifactId>

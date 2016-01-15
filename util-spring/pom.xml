@@ -10,18 +10,17 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>util-common</artifactId>
+  <artifactId>util-spring</artifactId>
+  <packaging>jar</packaging>
 
   <dependencies>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-digester3</artifactId>
-      <optional>true</optional>
     </dependency>
   </dependencies>
 
