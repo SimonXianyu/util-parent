@@ -29,7 +29,7 @@ public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
       } else {
         Class<?> controllerClass = method.getDeclaringClass();
 
-        FuncPermission methodAnnotation = method.getAnnotation(FuncPermission.class);
+        FuncPerm methodAnnotation = method.getAnnotation(FuncPerm.class);
         if (null != methodAnnotation) {
           if (null == methodAnnotation.domain() || "".equals(methodAnnotation.domain())) {
             FuncDomain classAnnotation = controllerClass.getAnnotation(FuncDomain.class);

@@ -9,7 +9,10 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target( ElementType.METHOD)
 @Inherited
-public @interface FuncPermission {
+public @interface FuncPerm {
   String domain() default "";
   String name();
+  boolean enableLog() default false;
+  boolean enablePermission() default true;
+  boolean enableLogFail() default false;
 }
