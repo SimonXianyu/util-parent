@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentMap;
  * Created by Simon Xianyu on 2016/1/10 0010.
  */
 public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
+  public static final String MODULE_CODE = "__ModuleCode";
 
   private ConcurrentMap<Method, String> permMap = new ConcurrentHashMap<>();
 
@@ -41,14 +42,8 @@ public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
         }
       }
       if (null != permissionName) {
-        if (!checker.isLogined(request, response)) {
-          return false;
-        }
-        if (checker.isPermitted(permissionName, request)) {
-          return true;
-        } else {
-          return false;
-        }
+        request.setAttribute(MODULE_CODE, permissionName);
+        return checker.isLogined(request, response) && checker.isPermitted(permissionName, request);
       }
     }
     return true;

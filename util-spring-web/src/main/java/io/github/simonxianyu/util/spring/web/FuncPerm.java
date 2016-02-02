@@ -11,6 +11,7 @@ import java.lang.annotation.*;
 @Inherited
 public @interface FuncPerm {
   String domain() default "";
+  String module() default "basic";
   String name();
   boolean enableLog() default false;
   boolean enablePermission() default true;
