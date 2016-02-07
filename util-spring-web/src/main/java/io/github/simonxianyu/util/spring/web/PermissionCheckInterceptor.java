@@ -34,9 +34,9 @@ public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
         if (null != methodAnnotation) {
           if (null == methodAnnotation.domain() || "".equals(methodAnnotation.domain())) {
             FuncDomain classAnnotation = controllerClass.getAnnotation(FuncDomain.class);
-            permissionName = classAnnotation.domain()+"."+methodAnnotation.name();
+            permissionName = classAnnotation.domain()+"."+methodAnnotation.module()+"."+methodAnnotation.name();
           } else {
-            permissionName = methodAnnotation.domain()+"."+methodAnnotation.name();
+            permissionName = methodAnnotation.domain()+"."+methodAnnotation.module()+"."+methodAnnotation.name();
           }
           permMap.put(method, permissionName);
         }
