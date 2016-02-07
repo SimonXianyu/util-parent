@@ -1,5 +1,6 @@
 package io.github.simonxianyu.util.spring.web;
 
+import org.apache.shiro.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -26,6 +27,8 @@ public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
   private FuncPermissionChecker checker;
 
   private String loginUrl;
+
+  private String unauthorizedUrl;
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -56,7 +59,11 @@ public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
           return false;
         } else if (!checker.isPermitted(permissionName, request)) {
           // Redirect to unauthorized warning page.
-          response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+          if (StringUtils.hasText(unauthorizedUrl)) {
+            doRedirect(request, response, unauthorizedUrl);
+          } else {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+          }
           return false;
         }
       }
@@ -142,5 +149,9 @@ public class PermissionCheckInterceptor extends HandlerInterceptorAdapter {
 
   public void setLoginUrl(String loginUrl) {
     this.loginUrl = loginUrl;
+  }
+
+  public void setUnauthorizedUrl(String unauthorizedUrl) {
+    this.unauthorizedUrl = unauthorizedUrl;
   }
 }
