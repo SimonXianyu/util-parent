@@ -31,27 +31,17 @@ public class MyPropertiesFactoryBean extends PropertiesFactoryBean {
         PropertiesLoaderUtils.fillProperties(newProperties, resource);
         if (newProperties.containsKey(FILTERED) ) {
           if (Boolean.parseBoolean(newProperties.getProperty(FILTERED))) {
-            applyPropertiesTo(newProperties, result);
+            FilterPropertyUtil.applyPropertiesTo(newProperties, result);
 //            result.putAll(newProperties);
             log.info("Merge extra file: {}", resource.getURI());
           }
         } else {
-          applyPropertiesTo(newProperties, result);
+          FilterPropertyUtil.applyPropertiesTo(newProperties, result);
           log.info("Merge extra file: {}", resource.getURI());
         }
       }
     }
     return result;
-  }
-
-  private void applyPropertiesTo(Properties newProperties, Properties result) {
-    for(String key : newProperties.stringPropertyNames()) {
-      String v = newProperties.getProperty(key);
-      if (null == v || v.contains("${")) { // skip null && ${
-        continue;
-      }
-      result.put(key, v);
-    }
   }
 
   public void setExtraLocations(List<Resource> extraLocations) {
