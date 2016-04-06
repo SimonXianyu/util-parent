@@ -7,8 +7,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * Load extra properties if the properties file valid.
@@ -46,5 +45,12 @@ public class MyPropertiesFactoryBean extends PropertiesFactoryBean {
 
   public void setExtraLocations(List<Resource> extraLocations) {
     this.extraLocations = extraLocations;
+  }
+
+  public void setExtraLocations2(Resource... extraLocations2) {
+    if (this.extraLocations == null) {
+      this.extraLocations = new ArrayList<>();
+    }
+    Collections.addAll(this.extraLocations, extraLocations2);
   }
 }
