@@ -13,6 +13,7 @@
     <module>util-common</module>
     <module>util-spring-web</module>
     <module>util-spring</module>
+    <module>util-spring-servlet3</module>
   </modules>
 
   <properties>
